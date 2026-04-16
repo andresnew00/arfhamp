@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARF Hamptons — Join The Hamptons Pack: Monthly Giving</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --teal: #2c7873;
+    --warm-teal: #3a9e8f;
+    --sand: #f5efe6;
+    --warm-sand: #efe4d2;
+    --cream: #fdfaf6;
+    --charcoal: #2d2d2d;
+    --warm-gray: #6b6560;
+    --gold: #c9953a;
+    --light-gold: #e8b86d;
+    --white: #ffffff;
+    --soft-border: rgba(26,39,68,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy);
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .logo-wrap img {
+    height: 46px;
+    filter: brightness(0) invert(1);
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  header nav a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-left: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  header nav a:hover { color: var(--light-gold); }
+  .header-cta {
+    background: var(--gold);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+  .header-cta:hover { background: var(--light-gold) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://cdn.prod.website-files.com/68aeb7df05e72e9171e43fe2/68caad318938b277a8076c05_hero-dog.png');
+    background-size: cover;
+    background-position: center 30%;
+    opacity: 0.22;
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(26,39,68,0.97) 40%, rgba(44,120,115,0.7) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 80px 5%;
+    animation: fadeSlideUp 1s ease both;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(201,149,58,0.18);
+    border: 1px solid rgba(201,149,58,0.4);
+    color: var(--light-gold);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 22px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--light-gold);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.65;
+    margin-bottom: 40px;
+    font-weight: 300;
+    max-width: 560px;
+  }
+  .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 30px rgba(201,149,58,0.4);
+    transition: all 0.25s ease;
+  }
+  .btn-primary:hover {
+    background: var(--light-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(201,149,58,0.55);
+  }
+  .btn-ghost {
+    display: inline-block;
+    color: rgba(255,255,255,0.85);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    padding: 15px 32px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--light-gold); color: var(--light-gold); }
+  .hero-stat-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    background: rgba(44,120,115,0.92);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    z-index: 3;
+  }
+  .stat-item {
+    padding: 22px 48px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ── VSL PLACEHOLDER ── */
+  .vsl-section {
+    background: var(--navy);
+    padding: 60px 5%;
+    text-align: center;
+  }
+  .vsl-placeholder {
+    max-width: 760px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.06);
+    border: 2px dashed rgba(201,149,58,0.4);
+    border-radius: 16px;
+    padding: 60px 40px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+  .vsl-placeholder .vsl-icon { font-size: 3rem; margin-bottom: 12px; display: block; }
+  .vsl-placeholder strong { color: var(--light-gold); font-size: 1rem; }
+
+  /* ── PAIN POINTS ── */
+  .pain-section {
+    background: var(--sand);
+    padding: 90px 5%;
+  }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 700px;
+  }
+  .pain-lead {
+    font-size: 1.1rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+    margin-bottom: 44px;
+    max-width: 640px;
+  }
+  .pain-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .pain-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 28px;
+    border-left: 4px solid var(--teal);
+    box-shadow: 0 2px 16px rgba(26,39,68,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .pain-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+  }
+  .pain-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(26,39,68,0.13); }
+  .pain-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+  .pain-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .pain-card p { font-size: 0.93rem; color: var(--warm-gray); line-height: 1.65; }
+
+  /* ── WHY ARF ── */
+  .why-section {
+    background: var(--cream);
+    padding: 100px 5%;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .why-img-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26,39,68,0.18);
+  }
+  .why-img-wrap img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .why-img-wrap:hover img { transform: scale(1.04); }
+  .badge-overlay {
+    position: absolute;
+    bottom: 24px; left: 24px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .why-text .section-eyebrow { margin-top: 0; }
+  .impact-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 36px 0;
+  }
+  .impact-box {
+    background: var(--sand);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+    border-top: 3px solid var(--teal);
+  }
+  .impact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+  }
+  .impact-desc {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+  .why-body {
+    font-size: 1.05rem;
+    color: var(--warm-gray);
+    line-height: 1.72;
+    margin-bottom: 20px;
+  }
+  .testimonial-card {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.07);
+    position: absolute;
+    top: -20px; left: 16px;
+    line-height: 1;
+  }
+  .testimonial-card p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.65;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial-attr {
+    color: var(--light-gold);
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-top: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── 3 STEPS ── */
+  .steps-section {
+    background: var(--navy);
+    padding: 100px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .steps-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(44,120,115,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .steps-section .section-title { color: var(--white); margin: 0 auto 20px; }
+  .steps-section .section-eyebrow { color: var(--light-gold); }
+  .steps-lead { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 60px; line-height: 1.6; }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 980px;
+    margin: 0 auto 52px;
+    position: relative;
+    z-index: 1;
+  }
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 36px; left: calc(16.5% + 36px);
+    width: calc(67% - 72px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--warm-teal));
+    z-index: 0;
+  }
+  .step-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 40px 28px;
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .step-box:hover { background: rgba(255,255,255,0.1); transform: translateY(-6px); }
+  .step-num {
+    width: 72px; height: 72px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--white);
+    box-shadow: 0 6px 24px rgba(44,120,115,0.5);
+  }
+  .step-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .step-box p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
+
+  /* ── MONTHLY GIVING COMMUNITY ── */
+  .community-section {
+    background: var(--warm-sand);
+    padding: 100px 5%;
+  }
+  .community-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .community-header .section-title { margin: 0 auto 16px; max-width: 600px; }
+  .community-header p { color: var(--warm-gray); font-size: 1.05rem; line-height: 1.65; max-width: 560px; margin: 0 auto; }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .tier-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(26,39,68,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .tier-card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(26,39,68,0.16); }
+  .tier-card.featured {
+    border: 3px solid var(--teal);
+    transform: scale(1.04);
+  }
+  .tier-card.featured:hover { transform: scale(1.04) translateY(-8px); }
+  .tier-header {
+    background: var(--navy);
+    padding: 30px 24px 20px;
+    text-align: center;
+  }
+  .tier-card.featured .tier-header { background: var(--teal); }
+  .tier-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light-gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .tier-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--white);
+  }
+  .tier-price {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-top: 6px;
+  }
+  .tier-price span { font-size: 1rem; opacity: 0.7; }
+  .tier-body { padding: 28px 24px; }
+  .tier-tagline {
+    font-style: italic;
+    color: var(--warm-gray);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--teal);
+    padding-left: 12px;
+  }
+  .tier-perks { list-style: none; }
+  .tier-perks li {
+    padding: 9px 0;
+    font-size: 0.88rem;
+    color: var(--charcoal);
+    border-bottom: 1px solid rgba(26,39,68,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
+  }
+  .tier-perks li:last-child { border-bottom: none; }
+  .perk-check { color: var(--teal); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .tier-cta {
+    display: block;
+    text-align: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    margin: 20px 24px 24px;
+    border-radius: 50px;
+  }
+  .tier-card.featured .tier-cta { background: var(--teal); }
+  .tier-cta:hover { background: var(--gold); }
+
+  /* ── DONATION FORM SECTION ── */
+  .donate-section {
+    background: var(--teal);
+    padding: 90px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .donate-section::after {
+    content: '🐾';
+    font-size: 18rem;
+    position: absolute;
+    right: -2%;
+    bottom: -6%;
+    opacity: 0.06;
+    line-height: 1;
+  }
+  .donate-section .section-title { color: var(--white); margin: 0 auto 14px; }
+  .donate-section .section-eyebrow { color: rgba(255,255,255,0.7); }
+  .donate-lead { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 580px; margin: 0 auto 44px; line-height: 1.65; }
+  .donate-amounts {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .amount-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .amount-btn:hover, .amount-btn.active {
+    background: var(--white);
+    color: var(--teal);
+    border-color: var(--white);
+  }
+  .donate-form-note {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.84rem;
+    margin-bottom: 32px;
+  }
+  .donate-cta-big {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 18px 52px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    transition: all 0.25s;
+  }
+  .donate-cta-big:hover { background: var(--light-gold); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.25); }
+  .donate-assurance {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .assurance-item { color: rgba(255,255,255,0.72); font-size: 0.83rem; display: flex; align-items: center; gap: 7px; }
+
+  /* ── SOCIAL PROOF ── */
+  .proof-section {
+    background: var(--cream);
+    padding: 90px 5%;
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 52px;
+  }
+  .proof-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 3px 18px rgba(26,39,68,0.07);
+    transition: transform 0.25s;
+  }
+  .proof-card:hover { transform: translateY(-4px); }
+  .proof-card .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--teal);
+    line-height: 0.8;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .proof-card p { color: var(--charcoal); font-size: 0.95rem; line-height: 1.7; font-style: italic; }
+  .proof-card .attr { margin-top: 16px; font-style: normal; font-size: 0.82rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.07em; }
+  .credential-bar {
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 56px;
+    padding: 32px;
+    background: var(--sand);
+    border-radius: 16px;
+  }
+  .cred-item {
+    text-align: center;
+  }
+  .cred-label {
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 4px;
+  }
+  .cred-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--navy);
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--navy);
+    padding: 100px 5%;
+  }
+  .faq-section .section-title { color: var(--white); max-width: 550px; margin-bottom: 10px; }
+  .faq-section .section-eyebrow { color: var(--light-gold); }
+  .faq-lead { color: rgba(255,255,255,0.6); margin-bottom: 50px; font-size: 1rem; }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 1000px;
+  }
+  .faq-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    text-align: left;
+    color: var(--white);
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.45;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .faq-q:hover { background: rgba(255,255,255,0.05); }
+  .faq-q .faq-arrow { color: var(--light-gold); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.3s; }
+  .faq-q.open .faq-arrow { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    padding: 0 24px;
+  }
+  .faq-a.open {
+    max-height: 300px;
+    padding: 0 24px 20px;
+  }
+  .faq-a p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+  /* ── EMAIL OPT-IN ── */
+  .optin-section {
+    background: var(--sand);
+    padding: 80px 5%;
+    text-align: center;
+  }
+  .optin-section .section-title { margin: 0 auto 14px; }
+  .optin-lead { color: var(--warm-gray); font-size: 1rem; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+  .optin-form {
+    display: flex;
+    gap: 12px;
+    max-width: 460px;
+    margin: 0 auto 14px;
+  }
+  .optin-form input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1.5px solid var(--soft-border);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .optin-form input:focus { border-color: var(--teal); }
+  .optin-btn {
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .optin-btn:hover { background: var(--warm-teal); transform: translateY(-1px); }
+  .unsub-note { font-size: 0.78rem; color: var(--warm-gray); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111c30;
+    padding: 60px 5% 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 16px;
+  }
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    max-width: 240px;
+  }
+  .footer-col h4 {
+    color: var(--light-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--light-gold); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-social { display: flex; gap: 14px; }
+  .footer-social a {
+    color: rgba(255,255,255,0.45);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-social a:hover { color: var(--light-gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .pain-cards { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+    .steps-grid::before { display: none; }
+    .tier-grid { grid-template-columns: 1fr; }
+    .tier-card.featured { transform: none; }
+    .tier-card.featured:hover { transform: translateY(-8px); }
+    .proof-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .stat-item { padding: 18px 24px; }
+    .stat-num { font-size: 1.5rem; }
+    header nav { display: none; }
+  }
+  @media (max-width: 560px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stat-strip { flex-wrap: wrap; }
+    .optin-form { flex-direction: column; }
+    .optin-form input, .optin-btn { border-radius: 12px; }
+    .donate-amounts { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <img src="https://cdn.prod.website-files.com/68aeb7df05e72e9171e43fe2/68ca6d4a2ff21321a1572387_arh-hamptons-logo.png" alt="ARF Hamptons" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="logo-text" style="display:none">ARF Hamptons</span>
+  </div>
+  <nav>
+    <a href="https://www.arfhamptons.org/adopt">Adopt</a>
+    <a href="https://www.arfhamptons.org/programs">Programs</a>
+    <a href="https://www.arfhamptons.org/get-involved">Get Involved</a>
+    <a href="https://www.arfhamptons.org/about">About</a>
+    <a href="https://p2p.onecause.com/2026arfgivingweek" class="header-cta">Give Monthly</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">🐾 50 Years of Rescue on the East End</span>
+    <h1>Join the animals who need a champion <em>every single month</em></h1>
+    <p class="hero-sub">Over 33,500 dogs and cats have found forever homes because of people like you. Your monthly gift of as little as $15 keeps ARF Hamptons ready for every animal who comes through the door — no matter what.</p>
+    <div class="hero-cta-group">
+      <a href="https://p2p.onecause.com/2026arfgivingweek" class="btn-primary">Give Monthly — Start at $15</a>
+      <a href="#community" class="btn-ghost">See the Impact</a>
+    </div>
+  </div>
+  <div class="hero-stat-strip">
+    <div class="stat-item">
+      <div class="stat-num">33,500+</div>
+      <div class="stat-label">Animals Rescued</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50</div>
+      <div class="stat-label">Years on the East End</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Charity Navigator Score</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">No-Kill</div>
+      <div class="stat-label">Sanctuary Philosophy</div>
+    </div>
+  </div>
+</section>
+
+<!-- VSL PLACEHOLDER -->
+<section class="vsl-section">
+  <div class="vsl-placeholder">
+    <span class="vsl-icon">▶</span>
+    <strong>VIDEO GOES HERE</strong><br><br>
+    Record a 60–90 second personal intro video explaining what ARF Hamptons does, why monthly giving matters, and invite the viewer to join The Hamptons Pack. Keep it warm, real, and personal.
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">The Reality</p>
+    <h2 class="section-title">Every day, animals on the East End need somewhere to go</h2>
+    <p class="pain-lead">You care about animals. You've probably even thought about doing more. But without a clear, easy way to help, that feeling stays just a feeling. Here's what's actually happening in our community right now.</p>
+    <div class="pain-cards">
+      <div class="pain-card">
+        <span class="pain-icon">🏠</span>
+        <h3>Financial crisis leads to surrender</h3>
+        <p>More animals arrive at ARF not because of behavior issues, but because their families lost housing or income. These are loved pets with nowhere to go.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">📦</span>
+        <h3>Southern shelters are at capacity</h3>
+        <p>ARF transports dogs and cats from overcrowded high-risk shelters in the South, where euthanasia is the alternative. Every transport costs money. Every month.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">💊</span>
+        <h3>Medical care never stops</h3>
+        <p>Rescued animals arrive with injuries, illness, and trauma. ARF provides the vet care, behavioral support, and training they need to be adoption-ready — no matter how long it takes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ARF -->
+<section class="why-section">
+  <div class="section-inner why-grid">
+    <div class="why-img-wrap">
+      <img src="https://cdn.prod.website-files.com/68aeb7df05e72e9171e43fe2/6965e3acd63fa7b9cdd6b3dc_0141-ARF%201.png" alt="ARF Hamptons animal care" onerror="this.src='https://cdn.prod.website-files.com/68aeb7df05e72e9171e43fe2/68caa336ce63864d53a09038_d6a3fe348b23cb80227156941c9220ca_donate-dog.png'">
+      <div class="badge-overlay">⭐ 4-Star Charity Navigator Rating</div>
+    </div>
+    <div class="why-text">
+      <p class="section-eyebrow">Why ARF Hamptons</p>
+      <h2 class="section-title">A 50-year track record. A no-kill promise. Real impact you can see.</h2>
+      <p class="why-body">ARF Hamptons is not just a shelter. It's a full-service rescue, rehabilitation, and community support organization that has served Long Island's East End since 1974. Founded because three determined women refused to look the other way at abandoned animals, ARF has grown into one of the region's most trusted no-kill sanctuaries.</p>
+      <p class="why-body">With a state-of-the-art facility, a dedicated training center, low-cost vet clinics, and a nearly 30-year trap-neuter-return program, ARF is built for the long haul. And so are the animals in its care.</p>
+      <div class="impact-stats">
+        <div class="impact-box">
+          <span class="impact-num">33,500+</span>
+          <span class="impact-desc">Dogs and cats rescued and rehomed since 1974</span>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">30 yrs</span>
+          <span class="impact-desc">Operation Cat TNR program protecting community cats</span>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">100%</span>
+          <span class="impact-desc">Charity Navigator accountability score</span>
+        </div>
+        <div class="impact-box">
+          <span class="impact-num">2024</span>
+          <span class="impact-desc">Launched low-cost spay/neuter clinics for the community</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p>"I was just 5 years old when I first walked through ARF's doors. By age 9, my brother and I had raised over $5,000 for them. Now I'm back as an intern, and I can tell you — the care these animals receive is unlike anything else on the East End."</p>
+        <div class="testimonial-attr">Eliza L. — ARF Marketing Intern &amp; Lifelong Supporter</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 STEPS -->
+<section class="steps-section">
+  <div class="section-inner" style="text-align:center">
+    <p class="section-eyebrow">How It Works</p>
+    <h2 class="section-title">Three steps. One monthly gift. A lifetime of impact.</h2>
+    <p class="steps-lead">Becoming a monthly donor takes 2 minutes. Here's what happens after you click.</p>
+    <div class="steps-grid">
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <h3>Choose Your Monthly Amount</h3>
+        <p>Pick $15, $50, or $100 per month — whatever feels right. Every tier joins The Hamptons Pack and makes a measurable difference.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <h3>Your Dollars Go to Work</h3>
+        <p>ARF puts your gift directly toward rescue operations, medical care, training, and behavioral support for every animal in its care.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <h3>You Watch the Impact Unfold</h3>
+        <p>Every month, you'll hear real stories from the animals your support helped. You're not just a donor — you're a champion with a name.</p>
+      </div>
+    </div>
+    <a href="https://p2p.onecause.com/2026arfgivingweek" class="btn-primary">Join The Hamptons Pack</a>
+  </div>
+</section>
+
+<!-- MONTHLY GIVING COMMUNITY -->
+<section class="community-section" id="community">
+  <div class="section-inner">
+    <div class="community-header">
+      <p class="section-eyebrow">The Hamptons Pack</p>
+      <h2 class="section-title">Pick your level. Every tier saves lives.</h2>
+      <p>Join a community of monthly donors who believe every dog and cat deserves a champion. Choose the level that feels right for you — and know that every dollar matters.</p>
+    </div>
+    <div class="tier-grid">
+      <!-- Tier 1 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <span class="tier-badge">Entry — "I'm In"</span>
+          <div class="tier-name">Paw Friend</div>
+          <div class="tier-price">$15<span>/month</span></div>
+        </div>
+        <div class="tier-body">
+          <p class="tier-tagline">"I care, and I'm showing up."</p>
+          <ul class="tier-perks">
+            <li><span class="perk-check">✓</span> Monthly impact email with real rescue stories</li>
+            <li><span class="perk-check">✓</span> Your name on ARF's digital donor wall</li>
+            <li><span class="perk-check">✓</span> Exclusive Hamptons Pack member updates</li>
+            <li><span class="perk-check">✓</span> Tax-deductible gift — 501(c)(3) confirmed</li>
+          </ul>
+          <a href="https://p2p.onecause.com/2026arfgivingweek" class="tier-cta">Become a Paw Friend</a>
+        </div>
+      </div>
+      <!-- Tier 2 (Featured) -->
+      <div class="tier-card featured">
+        <div class="tier-header">
+          <span class="tier-badge">Most Popular — "I'm Invested"</span>
+          <div class="tier-name">Rescue Guardian</div>
+          <div class="tier-price">$50<span>/month</span></div>
+        </div>
+        <div class="tier-body">
+          <p class="tier-tagline">"I want to see the difference I'm making."</p>
+          <ul class="tier-perks">
+            <li><span class="perk-check">✓</span> Everything in Paw Friend</li>
+            <li><span class="perk-check">✓</span> Quarterly behind-the-scenes photo update from ARF staff</li>
+            <li><span class="perk-check">✓</span> Handwritten thank-you note from the ARF team</li>
+            <li><span class="perk-check">✓</span> Early access to ARF impact data and annual highlights</li>
+            <li><span class="perk-check">✓</span> Named as "Rescue Guardian" in all ARF communications</li>
+          </ul>
+          <a href="https://p2p.onecause.com/2026arfgivingweek" class="tier-cta">Become a Rescue Guardian</a>
+        </div>
+      </div>
+      <!-- Tier 3 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <span class="tier-badge">Champion — "I'm Core"</span>
+          <div class="tier-name">East End Champion</div>
+          <div class="tier-price">$100<span>/month</span></div>
+        </div>
+        <div class="tier-body">
+          <p class="tier-tagline">"I'm a core part of what ARF can do."</p>
+          <ul class="tier-perks">
+            <li><span class="perk-check">✓</span> Everything in Rescue Guardian</li>
+            <li><span class="perk-check">✓</span> Annual Polaroid photo of an ARF rescue animal, mailed to you</li>
+            <li><span class="perk-check">✓</span> ARF branded keepsake item on your giving anniversary</li>
+            <li><span class="perk-check">✓</span> Birthday acknowledgment from ARF's executive director</li>
+            <li><span class="perk-check">✓</span> Recognition as "East End Champion" across ARF materials</li>
+          </ul>
+          <a href="https://p2p.onecause.com/2026arfgivingweek" class="tier-cta">Become an East End Champion</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATION FORM SECTION -->
+<section class="donate-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Start Today</p>
+    <h2 class="section-title">Your first gift could save a life this month</h2>
+    <p class="donate-lead">Pick your monthly amount below. It takes less than 2 minutes to set up. Cancel anytime. No hassle, no judgment.</p>
+    <div class="donate-amounts">
+      <button class="amount-btn" onclick="selectAmount(this)">$15/mo</button>
+      <button class="amount-btn active" onclick="selectAmount(this)">$50/mo</button>
+      <button class="amount-btn" onclick="selectAmount(this)">$100/mo</button>
+      <button class="amount-btn" onclick="selectAmount(this)">Other</button>
+    </div>
+    <p class="donate-form-note">That's less than a few coffees a month — and it gives an animal a second chance.</p>
+    <a href="https://p2p.onecause.com/2026arfgivingweek" class="donate-cta-big">Give $50 / Month Now</a>
+    <div class="donate-assurance">
+      <span class="assurance-item">🔒 Secure &amp; encrypted</span>
+      <span class="assurance-item">✅ Cancel anytime</span>
+      <span class="assurance-item">💛 100% tax-deductible</span>
+      <span class="assurance-item">🏆 4-star Charity Navigator</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">From the Community</p>
+    <h2 class="section-title">Real people. Real stories. Real impact.</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <span class="quote-mark">"</span>
+        <p>ARF gave our dog Bella a second chance when no one else would. She came to us scared and skinny. Now she runs on the beach every morning. I donate monthly because I want every dog to have a Bella story.</p>
+        <span class="attr">— East Hampton Monthly Donor</span>
+      </div>
+      <div class="proof-card">
+        <span class="quote-mark">"</span>
+        <p>The staff knows each animal inside and out — what helps them feel safe, who they get along with, and what kind of forever home would let them thrive. The level of care is extraordinary.</p>
+        <span class="attr">— Katie K., ARF Kennel Intern</span>
+      </div>
+      <div class="proof-card">
+        <span class="quote-mark">"</span>
+        <p>What surprised me most is how many animals arrive at ARF through no fault of their own — found on the road, rescued from puppy mills, or surrendered by owners who simply couldn't keep them. Every one of them deserves this chance.</p>
+        <span class="attr">— Jamie L., ARF Animal Care Intern</span>
+      </div>
+    </div>
+    <div class="credential-bar">
+      <div class="cred-item">
+        <div class="cred-label">Founded</div>
+        <div class="cred-value">1974</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-label">Animals Rescued</div>
+        <div class="cred-value">33,500+</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-label">Charity Navigator</div>
+        <div class="cred-value">100%</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-label">Policy</div>
+        <div class="cred-value">No-Kill</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-label">TNR Program</div>
+        <div class="cred-value">~30 yrs</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-label">501(c)(3)</div>
+        <div class="cred-value">Verified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Questions Answered</p>
+    <h2 class="section-title">Everything you need to know before you give</h2>
+    <p class="faq-lead">Real answers to the questions real donors ask.</p>
+    <div class="faq-grid" id="faqGrid">
+      <!-- FAQs injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL OPT-IN -->
+<section class="optin-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Stay Connected</p>
+    <h2 class="section-title">Not ready to give monthly yet? That's okay.</h2>
+    <p class="optin-lead">Get monthly rescue stories, event news, and updates from the animals at ARF — delivered right to your inbox. No pressure. Just paws.</p>
+    <form class="optin-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address">
+      <button class="optin-btn" type="submit">Keep Me Posted</button>
+    </form>
+    <p class="unsub-note">Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://cdn.prod.website-files.com/68aeb7df05e72e9171e43fe2/68ca6d4a2ff21321a1572387_arh-hamptons-logo.png" alt="ARF Hamptons" onerror="this.style.display='none'">
+      <p>The Animal Rescue Fund of the Hamptons has been saving lives on Long Island's East End since 1974. A registered 501(c)(3) nonprofit. No-kill. No exceptions.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Adopt</h4>
+      <a href="https://www.arfhamptons.org/adopt">Meet Our Pets</a>
+      <a href="https://www.arfhamptons.org/adoption-fees-info">Fees &amp; Info</a>
+      <a href="https://www.arfhamptons.org/foster">Foster a Pet</a>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <a href="https://www.arfhamptons.org/programs/southern-rescue-program">Southern Rescue</a>
+      <a href="https://www.arfhamptons.org/programs/operation-cat">Operation Cat</a>
+      <a href="https://www.arfhamptons.org/programs/spay-neuter-services">Low-Cost Vet Clinics</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:6315370400">631-537-0400</a>
+      <a href="mailto:info@arfhamptons.org">info@arfhamptons.org</a>
+      <a href="https://www.arfhamptons.org/contact">124 Daniels Hole Rd<br>East Hampton, NY 11937</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Animal Rescue Fund of the Hamptons, Inc. | NY Reg. No. RR035 | EIN 23-7400663</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/arfhamptons/" title="Instagram">📸</a>
+      <a href="https://www.facebook.com/ARFHamptons/" title="Facebook">👍</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ DATA
+const faqs = [
+  {
+    q: "How is my monthly donation used?",
+    a: "Your gift goes directly to rescue operations, medical care, behavioral training, and day-to-day care for every animal at ARF. ARF holds a 100% Charity Navigator accountability score, meaning your donation is stewarded with full transparency."
+  },
+  {
+    q: "Can I cancel my monthly giving anytime?",
+    a: "Yes, completely. You can cancel, pause, or change your monthly gift at any time with no penalties and no questions asked. We want giving to ARF to feel easy and right for you."
+  },
+  {
+    q: "Is my donation tax-deductible?",
+    a: "Yes. The Animal Rescue Fund of the Hamptons is a registered 501(c)(3) charitable organization (EIN 23-7400663). Your gift is fully tax-deductible to the extent allowed by law. You will receive a giving receipt for your records."
+  },
+  {
+    q: "What is ARF's philosophy on euthanasia?",
+    a: "ARF is a no-kill sanctuary. No animal in ARF's care is ever euthanized for space or time. Every animal stays until a loving home is found, no matter how long that takes."
+  },
+  {
+    q: "What is The Hamptons Pack?",
+    a: "The Hamptons Pack is ARF's monthly giving community. Members give $15, $50, or $100 per month and receive exclusive updates, behind-the-scenes stories, and recognition as a champion for the animals in ARF's care."
+  },
+  {
+    q: "Where do ARF's rescue animals come from?",
+    a: "ARF rescues animals locally on Long Island's East End, as well as from overcrowded high-risk shelters in the South through its Southern Rescue Program. ARF has also partnered internationally to rescue dogs from the China meat trade."
+  },
+  {
+    q: "Does ARF offer volunteer opportunities?",
+    a: "Absolutely. ARF welcomes volunteers age 16 and older. You can help in the kennels, cattery, at events, and more. Visit arfhamptons.org/get-involved to find the right opportunity for you."
+  },
+  {
+    q: "What is Operation Cat and why does it matter?",
+    a: "Operation Cat is ARF's nearly 30-year trap-neuter-return (TNR) program for community cats. It humanely stabilizes outdoor cat populations, reduces suffering, and prevents countless litters — all with free cat food and education support for local caregivers."
+  },
+  {
+    q: "How do I know ARF is a trustworthy organization?",
+    a: "ARF has earned a 100% score on Charity Navigator's accountability and finance assessment, is a registered shelter with the NY State Dept. of Agriculture and Markets (Reg. No. RR035), and has 50 years of transparent community service behind it."
+  },
+  {
+    q: "Can I give a one-time gift instead of monthly?",
+    a: "Of course. One-time gifts are welcome and appreciated. That said, monthly giving is the most powerful way to support ARF — because animals need food, medical care, and love every single day, not just when a campaign runs."
+  }
+];
+
+// Build FAQ
+const faqGrid = document.getElementById('faqGrid');
+faqs.forEach((faq, i) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = `
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ${faq.q}
+      <span class="faq-arrow">▾</span>
+    </button>
+    <div class="faq-a">
+      <p>${faq.a}</p>
+    </div>
+  `;
+  faqGrid.appendChild(item);
+});
+
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  // Toggle clicked
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+
+// Donation amount selector
+function selectAmount(btn) {
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const text = btn.textContent;
+  const cta = document.querySelector('.donate-cta-big');
+  if (text === 'Other') {
+    cta.textContent = 'Choose My Amount';
+  } else {
+    cta.textContent = `Give ${text} Now`;
+  }
+}
+
+// IntersectionObserver for pain cards
+const cards = document.querySelectorAll('.pain-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, idx) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), idx * 120);
+    }
+  });
+}, { threshold: 0.2 });
+cards.forEach(c => observer.observe(c));
+</script>
+
+</body>
+</html>
